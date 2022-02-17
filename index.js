@@ -1,8 +1,8 @@
-import { testaConexao } from './Settings/db.js';
-import { queryDB } from './Settings/db.js';
+import * as db from './Config/database/db.js';
+import server from './server.js'
 
-//const conectarDB = testaConexao();
+const conectarDB = db.testaConexao();
 
-const sql = "SELECT * FROM login"
-
-const query = queryDB(sql);
+server.get('/', (req, res) =>{
+    return res.send({message: "Testando Servidor"})
+})
